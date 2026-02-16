@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decrypt Data</title>
+    <link rel="stylesheet" href="/static/decrypt.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔓 Decrypt Your Data</h1>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <label>Select encrypted item:</label><br>
+            <select name="item">
+                <option value="-1">-- Select --</option>
+                {% for line in lines %}
+                    <option value="{{ loop.index0 }}">{{ line[:60] }}{% if line|length > 60 %}...{% endif %}</option>
+                {% endfor %}
+
+            </select><br>
+            <input type="text" name="key" placeholder="Enter key"><br>
+            <button type="submit">Decrypt</button>
+        </form>
+
+        <a class="button back" href="/">🏠 Back Home</a>
+    </div>
+</body>
+</html>

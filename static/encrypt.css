@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background: #1a1a1a;
+    color: #ff00ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 450px;
+    text-align: center;
+    border: 2px solid #ff00ff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px #ff00ff;
+    position: relative;
+    z-index: 1;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255,0,255,0.05),
+        rgba(255,0,255,0.05) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    z-index: 0;
+    animation: moveGrid 4s linear infinite;
+}
+
+@keyframes moveGrid {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); }
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+textarea, input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ff00ff;
+    border-radius: 8px;
+    background: #0f0f0f;
+    color: #ff00ff;
+    font-size: 1em;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #ff00ff;
+    color: #0f0f0f;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #cc00cc;
+    box-shadow: 0 0 20px #ff00ff;
+}
+
+.button.back {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #0f0f0f;
+    background: #ff00ff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.button.back:hover {
+    background: #cc00cc;
+    box-shadow: 0 0 15px #ff00ff;
+}
+
+.flash {
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 5px #fff;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+.flash.success {
+    background: #00ff00;
+    color: #0f0f0f;
+}
+
+.flash.error {
+    background: #ff3300;
+    color: #0f0f0f;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 5px #fff; }
+    to { box-shadow: 0 0 20px #fff; }
+}

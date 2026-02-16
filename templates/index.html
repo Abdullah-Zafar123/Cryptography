@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cryptographer - Home</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 Cryptographer</h1>
+        <p>Encrypt and decrypt your data securely! <br> (Hacker vibes ehh?)</p>
+
+        <div class="buttons">
+            <a class="button encrypt" href="{{ url_for('encrypt_page') }}">Encrypt Data</a>
+            <a class="button decrypt" href="{{ url_for('decrypt_page') }}">Decrypt Data</a>
+        </div>
+    </div>
+</body>
+</html>

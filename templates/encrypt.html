@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Encrypt Data</title>
+    <link rel="stylesheet" href="/static/encrypt.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ Encrypt Your Data</h1>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <textarea name="data" placeholder="Enter text to encrypt..." rows="6">{{ request.form.data }}</textarea>
+            <input type="text" name="key" placeholder="Enter your key" value="{{ request.form.key }}">
+            <button type="submit">Encrypt</button>
+        </form>
+
+        <a class="button back" href="/">🏠 Back Home</a>
+    </div>
+</body>
+</html>
